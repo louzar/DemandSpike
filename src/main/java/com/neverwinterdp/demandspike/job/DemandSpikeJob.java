@@ -15,26 +15,27 @@ public class DemandSpikeJob implements Runnable {
 
 	ApplicationMonitor appMonitor;
 	JobConfig config;
-	String id;
+	String name;
 
-	public DemandSpikeJob(ApplicationMonitor monitor, JobConfig config) {
+	public DemandSpikeJob(String name, ApplicationMonitor monitor, JobConfig config) {
+		this.name = name;
 		this.appMonitor = monitor;
 		this.config = config;
 
 	}
 
-	public String getId() {
-		return id;
+	public String getName() {
+		return name;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setName(String id) {
+		this.name = id;
 	}
 
 	public void run() {
 		ExecutorService taskExecutor = null;
 		try {
-			taskExecutor = Executors.newFixedThreadPool(config.numOfProcesses);
+			taskExecutor = Executors.newFixedThreadPool(config.numOfTasks);
 			MessageSenderTask[] task = config.createMessageSender(appMonitor);
 			for (int i = 0; i < task.length; i++) {
 				task[i].setLogger(LOGGER);

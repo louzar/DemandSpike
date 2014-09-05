@@ -17,11 +17,11 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		  List<String> connect = new ArrayList<String>();
-		  connect.add("127.0.0.1:7080");
-		  JobConfig config = new JobConfig(new MessageDriverConfig("sparkngin", connect,""), 1, 1, 1024, 30000, 1000000, 0);
+		  connect.add("127.0.0.1:80");
+		  JobConfig config = new JobConfig(new MessageDriverConfig("sparkngin", connect,"metrics.consumer"), 1, 1024, 300000, 10000000, 0);
 	      ApplicationMonitor appMonitor = new ApplicationMonitor() ;
-	      DemandSpikeJob sender = new DemandSpikeJob(appMonitor, config) ;
-	      sender.run();
+	      DemandSpikeJob job = new DemandSpikeJob("sparkngin producer",appMonitor, config) ;
+	      job.run();
 	      ApplicationMonitorSnapshot snapshot = appMonitor.snapshot() ;
 	      Map<String, TimerSnapshot> timers = snapshot.getRegistry().getTimers() ;
 	      MetricFormater formater = new MetricFormater("  ") ;    

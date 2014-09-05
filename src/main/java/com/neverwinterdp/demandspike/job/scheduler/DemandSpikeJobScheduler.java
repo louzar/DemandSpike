@@ -25,7 +25,7 @@ public class DemandSpikeJobScheduler {
 
 	public boolean submit(DemandSpikeJob job, long timeout)
 			throws InterruptedException {
-		job.setId(Long.toString(idTracker.incrementAndGet()));
+		job.setName(Long.toString(idTracker.incrementAndGet()));
 		return jobQueue.offer(job, timeout, TimeUnit.MILLISECONDS);
 	}
 
@@ -80,7 +80,7 @@ public class DemandSpikeJobScheduler {
 					while (jobRunner.isAlive()) {
 						Thread.sleep(100);
 					}
-					finishedJobs.put(runningJob.getId(), runningJob);
+					finishedJobs.put(runningJob.getName(), runningJob);
 					runningJob = null;
 				}
 			} catch (InterruptedException e) {
@@ -99,7 +99,6 @@ public class DemandSpikeJobScheduler {
 
 		public void run() {
 			try {
-				ByteArrayOutputStream bout = new ByteArrayOutputStream();
 				job.run();
 			} catch (Throwable t) {
 				t.printStackTrace();

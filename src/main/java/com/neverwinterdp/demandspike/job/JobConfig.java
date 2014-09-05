@@ -9,8 +9,6 @@ public class JobConfig implements Serializable {
 
 	public int numOfTasks = 1;
 
-	public int numOfProcesses = 1;
-
 	public int messageSize = 1024;
 
 	public long maxDuration = 30 * 1000; // 30s
@@ -22,10 +20,9 @@ public class JobConfig implements Serializable {
 	final public MessageDriverConfig driverConfig;
 
 	public JobConfig(MessageDriverConfig driverConfig, int numOfTasks,
-			int numOfProcesses, int messageSize, long maxDuration,
+			int messageSize, long maxDuration,
 			long maxNumOfMessage, long sendPeriod) {
 		this.numOfTasks = numOfTasks;
-		this.numOfProcesses = numOfProcesses;
 		this.messageSize = messageSize;
 		this.maxDuration = maxDuration;
 		this.maxNumOfMessage = maxNumOfMessage;
@@ -43,8 +40,7 @@ public class JobConfig implements Serializable {
 	public MessageSenderTask[] createMessageSender(ApplicationMonitor appMonitor) {
 		MessageSenderTask[] tasks = new MessageSenderTask[numOfTasks];
 		for (int i = 0; i < numOfTasks; i++) {
-			tasks[i] = new MessageSenderTask("message-sender-task-" + i,
-					appMonitor, this);
+			tasks[i] = new MessageSenderTask("message-sender-task-" + i,appMonitor, this);
 		}
 		return tasks;
 	}

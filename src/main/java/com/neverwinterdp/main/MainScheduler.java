@@ -18,13 +18,11 @@ public class MainScheduler {
 		DemandSpikeJobScheduler jobScheduler = new DemandSpikeJobScheduler();
 		jobScheduler.start();
 		List<String> connect = new ArrayList<String>();
-		connect.add("127.0.0.1:80");
-		JobConfig config = new JobConfig(
-				new MessageDriverConfig("sparkngin", connect, ""), 1, 1, 1024,
-				30000, 1000000, 0);
-
-		DemandSpikeJob job = new DemandSpikeJob(appMonitor, config);
+		connect.add("127.0.0.1:7080");
+		JobConfig config = new JobConfig(new MessageDriverConfig("sparkngin", connect,"metrics.consumer"), 1, 1024, 30000, 10000000, 0);
+		DemandSpikeJob job = new DemandSpikeJob("sparkngin job",appMonitor, config);
 		jobScheduler.submit(job, 10000);
+		jobScheduler.start();
 		jobScheduler.stop();
 
 	}

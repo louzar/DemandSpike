@@ -17,7 +17,7 @@ public class DemandSpikeClusterBuilder {
   
   public static String TOPIC = "metrics.consumer" ;
   
-  public Server zkServer, sparknginServer, demandSpikeServer, genericServer ;
+  public Server zkServer, sparknginServer,  genericServer ;
   public Server[] kafkaServer ;
   public Shell shell ;
   public ClusterGateway gateway ;
@@ -41,7 +41,7 @@ public class DemandSpikeClusterBuilder {
     }
     sparknginServer = Server.create("-Pserver.name=sparkngin", "-Pserver.roles=sparkngin") ;
     
-    demandSpikeServer = Server.create("-Pserver.name=demandspike", "-Pserver.roles=demandspike") ;
+   // demandSpikeServer = Server.create("-Pserver.name=demandspike", "-Pserver.roles=demandspike") ;
     
     shell = new Shell() ;
     shell.getShellContext().connect();
@@ -52,7 +52,7 @@ public class DemandSpikeClusterBuilder {
   
   public void destroy() throws Exception {
     shell.close();
-    demandSpikeServer.destroy() ;
+    //demandSpikeServer.destroy() ;
     sparknginServer.destroy() ;
     genericServer.destroy() ; 
     for(int i  = 0; i < kafkaServer.length; i++) {

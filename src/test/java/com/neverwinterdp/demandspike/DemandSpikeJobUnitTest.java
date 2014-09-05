@@ -17,10 +17,10 @@ public class DemandSpikeJobUnitTest {
 		List<String> connect = new ArrayList<String>();
 		connect.add("127.0.0.1:80");
 		JobConfig config = new JobConfig(
-				new MessageDriverConfig("sparkngin", connect, ""), 1, 1, 1024,
+				new MessageDriverConfig("sparkngin", connect, ""), 1, 1024,
 				30000, 1000000, 0);
 
-		DemandSpikeJob job = new DemandSpikeJob(appMonitor, config);
+		DemandSpikeJob job = new DemandSpikeJob("",appMonitor, config);
 		job.run();
 
 	}
@@ -31,10 +31,10 @@ public class DemandSpikeJobUnitTest {
 		List<String> connect = new ArrayList<String>();
 		connect.add("127.0.0.1:80");
 		JobConfig config = new JobConfig(
-				new MessageDriverConfig("sparkngin", connect, ""), 1, 1, 1024,
+				new MessageDriverConfig("sparkngin", connect, ""), 1, 1024,
 				30000, 1000000, 0);
 
-		DemandSpikeJob job = new DemandSpikeJob(appMonitor, config);
+		DemandSpikeJob job = new DemandSpikeJob("",appMonitor, config);
 		job.run();
 	}
 }
