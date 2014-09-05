@@ -8,7 +8,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.TimeoutException;
 
-import com.neverwinterdp.message.Message;
+import com.neverwinterdp.demandspike.http.Message;
 import com.neverwinterdp.netty.http.client.AsyncHttpClient;
 import com.neverwinterdp.netty.http.client.ResponseHandler;
 import com.neverwinterdp.sparkngin.SendAck;

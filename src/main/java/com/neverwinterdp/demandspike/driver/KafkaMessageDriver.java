@@ -33,4 +33,11 @@ public class KafkaMessageDriver implements MessageDriver {
   public void close() { 
     producer.close();
   }
+
+@Override
+public void send(com.neverwinterdp.demandspike.http.Message message)
+		throws Exception {
+	// TODO Auto-generated method stub
+	
+}
 }

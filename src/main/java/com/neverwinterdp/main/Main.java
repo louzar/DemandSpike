@@ -17,7 +17,7 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		  List<String> connect = new ArrayList<String>();
-		  connect.add("127.0.0.1:80");
+		  connect.add("127.0.0.1:7080");
 		  JobConfig config = new JobConfig(new MessageDriverConfig("sparkngin", connect,""), 1, 1, 1024, 30000, 1000000, 0);
 	      ApplicationMonitor appMonitor = new ApplicationMonitor() ;
 	      DemandSpikeJob sender = new DemandSpikeJob(appMonitor, config) ;

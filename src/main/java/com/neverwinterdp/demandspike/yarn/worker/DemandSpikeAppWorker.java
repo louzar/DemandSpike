@@ -3,10 +3,11 @@ package com.neverwinterdp.demandspike.yarn.worker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.neverwinterdp.demandspike.http.Message;
 import com.neverwinterdp.hadoop.yarn.app.AppInfo;
 import com.neverwinterdp.hadoop.yarn.app.worker.AppWorker;
 import com.neverwinterdp.hadoop.yarn.app.worker.AppWorkerContainer;
-import com.neverwinterdp.message.Message;
+
 
 public class DemandSpikeAppWorker implements AppWorker {
   protected static final Logger LOGGER = LoggerFactory.getLogger(DemandSpikeAppWorker.class);

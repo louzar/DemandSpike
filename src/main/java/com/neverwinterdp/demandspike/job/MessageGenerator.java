@@ -1,6 +1,8 @@
 package com.neverwinterdp.demandspike.job;
 
-import com.neverwinterdp.message.Message;
+import com.neverwinterdp.demandspike.http.Message;
+
+
 
 public class MessageGenerator {
 	private long idTracker = 0;

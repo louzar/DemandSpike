@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.codahale.metrics.Timer;
-import com.neverwinterdp.message.Message;
+import com.neverwinterdp.demandspike.http.Message;
 import com.neverwinterdp.util.monitor.ApplicationMonitor;
 import com.neverwinterdp.util.monitor.ComponentMonitor;
 

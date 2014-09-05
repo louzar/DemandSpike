@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.codahale.metrics.Timer;
-import com.neverwinterdp.message.Message;
-import com.neverwinterdp.sparkngin.http.HttpMessageClient;
+import com.neverwinterdp.demandspike.http.HttpMessageClient;
+import com.neverwinterdp.demandspike.http.Message;
 import com.neverwinterdp.util.monitor.ApplicationMonitor;
 import com.neverwinterdp.util.monitor.ComponentMonitor;
 
@@ -34,14 +34,18 @@ public class HttpSparknginMessageDriver implements MessageDriver {
     }
   }
   
-  public void send(Message message) throws Exception {
-    Timer.Context ctx = driverMonitor.timer("send(Message)").time() ;
-    message.getHeader().setTopic(topic);
-    client.send(message, 15000);
-    ctx.stop() ;
-  }
   
   public void close() { 
     client.close();
   }
+
+public void send(Message message) throws Exception {
+	// TODO Auto-generated method stub
+	Timer.Context ctx = driverMonitor.timer("send(Message)").time() ;
+    message.getHeader().setTopic(topic);
+    client.send(message, 15000);
+    ctx.stop() ;
+}
+
+
 }

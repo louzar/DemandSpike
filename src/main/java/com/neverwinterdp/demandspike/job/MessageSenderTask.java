@@ -8,7 +8,7 @@ import java.util.TimerTask;
 import org.slf4j.Logger;
 
 import com.neverwinterdp.demandspike.driver.MessageDriver;
-import com.neverwinterdp.message.Message;
+import com.neverwinterdp.demandspike.http.Message;
 import com.neverwinterdp.util.monitor.ApplicationMonitor;
 
 public class MessageSenderTask implements Runnable, Serializable {
